@@ -2,18 +2,17 @@
 
 int binary_tree_is_complete(const binary_tree_t *tree);
 levelorder_queue_t *create_node(binary_tree_t *node);
-void free_queue(levelorder_queue_t *head);
 void push(binary_tree_t *node, levelorder_queue_t *head,
 		levelorder_queue_t **tail);
 void pop(levelorder_queue_t **head);
+void free_queue(levelorder_queue_t *head);
 
 /**
- * binary_tree_is_complete - Checks if a binary tree is complete.
- *
- * @tree: A pointer to the root node of the tree to check.
- *
- * Return: 0 if tree is NULL.
+ * binary_tree_is_complete - A function that checks if a binary tree is complete.
+ * @tree: The node of the tree to check.
+ * Return: 0 if no tree
  */
+
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
 
@@ -57,78 +56,75 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 }
 
 /**
- * create_node - Creates a new levelorder_queue_t node.
- *
+ * create_node - A function that creates a new levelorder_queue_t node.
  * @node: The binary tree node for the new node to contain.
- *
- * Return: If an error occurs, NULL.
- *         Otherwise, a pointer to the new node.
+ * Return: NULL or a pointer to the new node.
  */
+
 levelorder_queue_t *create_node(binary_tree_t *node)
 {
-	levelorder_queue_t *new;
+	levelorder_queue_t *n;
 
-	new = malloc(sizeof(levelorder_queue_t));
-	if (new == NULL)
+	n = malloc(sizeof(levelorder_queue_t));
+	if (n == NULL)
 		return (NULL);
 
-	new->node = node;
-	new->next = NULL;
+	n->node = node;
+	n->next = NULL;
 
-	return (new);
+	return (n);
 }
 
 /**
- * free_queue - Frees a levelorder_queue_t queue.
- *
+ * free_queue - A functions that frees a levelorder_queue_t queue.
  * @head: A pointer to the head of the queue.
  */
+
 void free_queue(levelorder_queue_t *head)
 {
-	levelorder_queue_t *tmp;
+	levelorder_queue_t *temp;
 
 	while (head != NULL)
 	{
-		tmp = head->next;
+		temp = head->next;
 		free(head);
-		head = tmp;
+		head = temp;
 	}
 }
 
 /**
- * push - Pushes a node to the back of a levelorder_queue_t queue.
- *
+ * push - A function that pushes a node to the back of a levelorder_queue_t queue.
  * @node: The binary tree node to print and push.
  * @head: A double pointer to the head of the queue.
  * @tail: A double pointer to the tail of the queue.
- *
- * Description: Upon malloc failure, exits with a status code of 1.
+ * Description: If malloc fails exits on 1.
  */
+
 void push(binary_tree_t *node, levelorder_queue_t *head,
 		levelorder_queue_t **tail)
 {
-	levelorder_queue_t *new;
+	levelorder_queue_t *n;
 
-	new = create_node(node);
-	if (new == NULL)
+	n = create_node(node);
+	if (n == NULL)
 	{
 		free_queue(head);
 		exit(1);
 	}
-	(*tail)->next = new;
-	*tail = new;
+	(*tail)->next = n;
+	*tail = n;
 }
 
 /**
- * pop - Pops the head of a levelorder_queue_t queue.
- *
+ * pop - A function that pops the head of a levelorder_queue_t queue.
  * @head: A double pointer to the head of the queue.
  */
+
 void pop(levelorder_queue_t **head)
 {
-	levelorder_queue_t *tmp;
+	levelorder_queue_t *temp;
 
-	tmp = (*head)->next;
+	temp = (*head)->next;
 	free(*head);
-	*head = tmp;
+	*head = temp;
 }
