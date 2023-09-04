@@ -34,7 +34,8 @@ heap_t *heap_insert(heap_t **root, int value)
 	leaves & 1 ? (tree->right = new) : (tree->left = new);
 
 	flip = new;
-	for (; flip->parent && (flip->n > flip->parent->n); flip = flip->parent)
+	for (; flip->parent && (flip->n > flip->parent->n); flip =
+		       	flip->parent)
 	{
 		tmp = flip->n;
 		flip->n = flip->parent->n;
@@ -57,5 +58,6 @@ size_t binary_tree_size(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	return (binary_tree_size(tree->left) + binary_tree_size(tree->right) + 1);
+	return (binary_tree_size(tree->left) + binary_tree_size(tree->right)
+		       	+ 1);
 }

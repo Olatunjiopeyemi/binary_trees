@@ -7,7 +7,8 @@ void pint_push(binary_tree_t *node, levelorder_queue_t *head,
 void pop(levelorder_queue_t **head);
 
 /**
- * binary_tree_levelorder - A function that goes through a bin-tree by level-order traversal.
+ * binary_tree_levelorder - A function that goes through a bin-tree by
+ * level-order traversal.
  * @tree: The node of the tree to traverse.
  * @func: A pointer to the calling function
  */
@@ -51,7 +52,8 @@ levelorder_queue_t *create_node(binary_tree_t *node)
 }
 
 /**
- * pint_push - A function that runs a function on a given binary tree node and pushes its children into
+ * pint_push - A function that runs a function on a given binary tree node and
+ * pushes its children into
  * a levelorder_queue_t queue.
  * @node: The binary tree node to print and push.
  * @head: A double pointer to the head of the queue.

@@ -16,7 +16,8 @@ int binary_tree_is_full(const binary_tree_t *tree)
 }
 
 /**
- * is_full_recursive - A function that checks if a binary tree is full recursively.
+ * is_full_recursive - A function that checks if a binary tree is full
+ * recursively.
  * @tree: The node to check
  * Return: 0 or 1.
  */

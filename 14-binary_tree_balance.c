@@ -1,6 +1,7 @@
 #include "binary_trees.h"
 /**
- * binary_tree_balance - A function that measures the balance factor of a binary tree.
+ * binary_tree_balance - A function that measures the balance factor of a
+ * binary tree.
  * @tree: The node to measure
  * Return: 0 if tree is NULL.
  */

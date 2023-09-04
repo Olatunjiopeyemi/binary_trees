@@ -3,8 +3,8 @@
 avl_t *avl_insert(avl_t **tree, int value);
 int balance(const binary_tree_t *tree);
 size_t height(const binary_tree_t *tree);
-avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,avl_t **new, int 
-		value);
+avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
+		avl_t **new, int value)
 /**
  * avl_insert - A function that inserts a value in an AVL Tree.
  * @tree: A double pointer to the root node of the AVL tree for inserting.
@@ -28,7 +28,8 @@ avl_t *avl_insert(avl_t **tree, int value)
 }
 
 /**
- * avl_insert_recursive - A functio that inserts a value into an AVL tree recursively.
+ * avl_insert_recursive - A functio that inserts a value into an AVL tree
+ * recursively.
  * @tree: A double pointer to the root node of the AVL tree to insert into.
  * @parent: The parent node of the current working node.
  * @new: A double pointer to store the new node.
